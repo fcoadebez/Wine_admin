@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="assets/img/favicon.png">
+    <title>Maisonnette</title>
+    <link rel="stylesheet" type="text/css" href="assets/lib/stroke-7/style.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/lib/perfect-scrollbar/css/perfect-scrollbar.min.css"/>
+    <link rel="stylesheet" href="assets/css/app.css" type="text/css"/>
+  </head>
+  <body>
+    <nav class="navbar navbar-full navbar-inverse navbar-fixed-top mai-top-header">
+      <div class="container"><a href="#" class="navbar-brand"></a>
+        <!--Left Menu-->
+        <ul class="nav navbar-nav mai-top-nav">
+          <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+          <li class="nav-item"><a href="#" class="nav-link">About</a></li>
+          <li class="nav-item dropdown"><a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle">Services <span class="angle-down s7-angle-down"></span></a>
+            <div role="menu" class="dropdown-menu"><a href="#" class="dropdown-item">Information</a><a href="#" class="dropdown-item">Company</a><a href="#" class="dropdown-item">Documentation</a><a href="#" class="dropdown-item">API Settings</a><a href="#" class="dropdown-item">Export Info</a></div>
+          </li>
+          <li class="nav-item"><a href="#" class="nav-link">Support</a></li>
+        </ul>
+        <!--Icons Menu-->
+        <ul class="navbar-nav float-lg-right mai-icons-nav">
+          <li class="dropdown nav-item mai-messages"><a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><span class="icon s7-comment"></span></a>
+            <ul class="dropdown-menu">
+              <li>
+                <div class="title">Messages</div>
+                <div class="mai-scroller">
+                  <div class="content">
+                    <ul>
+                      <li><a href="#">
+                          <div class="img"><img src="assets/img/avatars/img1.jpg"></div>
+                          <div class="content"><span class="date">16 Sept</span><span class="name">Victor Jara</span><span class="desc">The song that has been brave, will always be the new song. </span></div></a></li>
+                      <li><a href="#">
+                          <div class="img"><img src="assets/img/avatars/img2.jpg"></div>
+                          <div class="content"><span class="date">4 Sept</span><span class="name">Gustavo Cerati</span><span class="desc">You will see me fly across the city of fury where no one knows of me.</span></div></a></li>
+                      <li><a href="#">
+                          <div class="img"><img src="assets/img/avatars/img3.jpg"></div>
+                          <div class="content"><span class="date">13 Aug</span><span class="name">Jaime Garzón</span><span class="desc">Now everything came back to the abnormality.</span></div></a></li>
+                      <li><a href="#">
+                          <div class="img"><img src="assets/img/avatars/img4.jpg"></div>
+                          <div class="content"><span class="date">13 Aug</span><span class="name">Allen Collins</span><span class="desc">Things just couldn't even be the same 'Cause I'm as free as a bird now.</span></div></a></li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="footer"> <a href="#">View all messages</a></div>
+              </li>
+            </ul>
+          </li>
+          <li class="dropdown nav-item mai-notifications"><a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><span class="icon s7-bell"></span><span class="indicator"></span></a>
+            <ul class="dropdown-menu">
+              <li>
+                <div class="title">Notifications</div>
+                <div class="mai-scroller">
+                  <div class="content">
+                    <ul>
+                      <li><a href="#">
+                          <div class="icon"><span class="s7-check"></span></div>
+                          <div class="content"><span class="desc">This is a new message for my dear friend <strong>Rob</strong>.</span><span class="date">10 minutes ago</span></div></a></li>
+                      <li><a href="#">
+                          <div class="icon"><span class="s7-add-user"></span></div>
+                          <div class="content"><span class="desc">You have a new fiend request pending from <strong>John Doe</strong>.</span><span class="date">2 days ago</span></div></a></li>
+                      <li><a href="#">
+                          <div class="icon"><span class="s7-graph1"></span></div>
+                          <div class="content"><span class="desc">Your site visits have increased <strong>15.5%</strong> more since the last week.</span><span class="date">2 hours ago</span></div></a></li>
+                      <li><a href="#">
+                          <div class="icon"><span class="s7-check"></span></div>
+                          <div class="content"><span class="desc">This is a new message for my dear friend <strong>Rob</strong>.</span><span class="date">10 minutes ago</span></div></a></li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="footer"> <a href="#">View all notifications</a></div>
+              </li>
+            </ul>
+          </li>
+          <li class="dropdown nav-item mai-settings"><a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><span class="icon s7-settings"></span></a>
+            <ul class="dropdown-menu">
+              <li>
+                <div class="title">Settings</div>
+                <div class="content">
+                  <ul>
+                    <li><span>Enable Notifications</span>
+                      <div class="float-right">
+                        <div class="switch-button switch-button-sm">
+                          <input type="checkbox" checked="" name="check" id="switch1"><span>
+                            <label for="switch1"></label></span>
+                        </div>
+                      </div>
+                    </li>
+                    <li><span>Auto Commit</span>
+                      <div class="float-right">
+                        <div class="switch-button switch-button-sm">
+                          <input type="checkbox" checked="" name="check2" id="switch2"><span>
+                            <label for="switch2"></label></span>
+                        </div>
+                      </div>
+                    </li>
+                    <li><span>Sidebar</span>
+                      <div class="float-right">
+                        <div class="switch-button switch-button-sm">
+                          <input type="checkbox" name="check3" id="switch3"><span>
+                            <label for="switch3"></label></span>
+                        </div>
+                      </div>
+                    </li>
+                    <li><span>Full-width Layout</span>
+                      <div class="float-right">
+                        <div class="switch-button switch-button-sm">
+                          <input type="checkbox" checked="" name="check4" id="switch4"><span>
+                            <label for="switch4"></label></span>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+          </li>
+        </ul>
+        <!--User Menu-->
+        <ul class="nav navbar-nav float-lg-right mai-user-nav">
+          <li class="dropdown nav-item"><a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="dropdown-toggle nav-link"> <img src="assets/img/avatar.jpg"><span class="user-name">Violeta Parra</span><span class="angle-down s7-angle-down"></span></a>
+            <div role="menu" class="dropdown-menu"><a href="#" class="dropdown-item"> <span class="icon s7-home"> </span>My Account</a><a href="#" class="dropdown-item"> <span class="icon s7-user"> </span>Profile</a><a href="#" class="dropdown-item"> <span class="icon s7-cash"> </span>Billing</a><a href="#" class="dropdown-item"> <span class="icon s7-tools"> </span>Settings</a><a href="#" class="dropdown-item"> <span class="icon s7-power"> </span>Log Out</a></div>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <div class="mai-wrapper">
+      <nav class="navbar mai-sub-header">
+        <div class="container">
+                    <!-- Mega Menu structure-->
+                    <nav class="navbar navbar-toggleable-sm">
+                      <button type="button" data-toggle="collapse" data-target="#mai-navbar-collapse" aria-controls="#mai-navbar-collapse" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler hidden-md-up collapsed">
+                        <div class="icon-bar"><span></span><span></span><span></span></div>
+                      </button>
+                      <div id="mai-navbar-collapse" class="navbar-collapse collapse mai-nav-tabs">
+                        <ul class="nav navbar-nav">
+                                    <li class="nav-item parent"><a href="#" role="button" aria-expanded="false" class="nav-link"><span class="icon s7-home"></span><span>Home</span></a>
+                                      <ul class="mai-nav-tabs-sub mai-sub-nav nav">
+                                                  <li class="nav-item"><a href="index.html" class="nav-link"><span class="icon s7-monitor"></span><span class="name">Dashboard</span></a>
+                                                  </li>
+                                                  <li class="nav-item dropdown parent"><a href="ui-elements.html" data-toggle="dropdown" class="nav-link"><span class="icon s7-diamond"></span><span class="name">UI Elements</span></a>
+                                                              <div role="menu" class="dropdown-menu mai-sub-nav"><a href="ui-general.html" class="dropdown-item">General</a><a href="ui-panels.html" class="dropdown-item">Panels</a><a href="ui-buttons.html" class="dropdown-item">Buttons</a><a href="ui-typography.html" class="dropdown-item">Typography</a><a href="ui-grid.html" class="dropdown-item">Grid</a>
+                                                              </div>
+                                                  </li>
+                                                  <li class="nav-item dropdown parent"><a href="ui-elements.html" data-toggle="dropdown" class="nav-link"><span class="icon s7-diamond"></span><span class="name">Components</span></a>
+                                                              <div role="menu" class="dropdown-menu mai-sub-nav"><a href="ui-alerts.html" class="dropdown-item">Alerts</a><a href="ui-icons.html" class="dropdown-item">Icons</a><a href="ui-tabs-accordions.html" class="dropdown-item">Tabs &amp; Accordions</a>
+                                                              </div>
+                                                  </li>
+                                                  <li class="nav-item dropdown parent"><a href="plugins.html" data-toggle="dropdown" class="nav-link"><span class="icon s7-plugin"></span><span class="name">Plugins</span></a>
+                                                              <div role="menu" class="dropdown-menu mai-sub-nav"><a href="ui-modals.html" class="dropdown-item">Modals</a><a href="ui-nestable-lists.html" class="dropdown-item">Nestable Lists</a><a href="ui-notifications.html" class="dropdown-item">Notifications</a>
+                                                              </div>
+                                                  </li>
+                                      </ul>
+                                    </li>
+                                    <li class="nav-item parent open"><a href="#" role="button" aria-expanded="false" class="nav-link"><span class="icon s7-rocket"></span><span>Forms</span></a>
+                                      <ul class="mai-nav-tabs-sub mai-sub-nav nav">
+                                                  <li class="nav-item"><a href="form-elements.html" class="nav-link"><span class="name">Elements</span></a>
+                                                  </li>
+                                                  <li class="nav-item"><a href="form-validation.html" class="nav-link active"><span class="name">Validation</span></a>
+                                                  </li>
+                                                  <li class="nav-item"><a href="form-masks.html" class="nav-link"><span class="name">Masks</span></a>
+                                                  </li>
+                                                  <li class="nav-item"><a href="form-xeditable.html" class="nav-link"><span class="name">X-Editable</span></a>
+                                                  </li>
+                                                  <li class="nav-item"><a href="form-multiselect.html" class="nav-link"><span class="name">Multiselect</span></a>
+                                                  </li>
+                                                  <li class="nav-item"><a href="form-wizard.html" class="nav-link"><span class="name">Wizard</span></a>
+                                                  </li>
+                                                  <li class="nav-item"><a href="form-upload.html" class="nav-link"><span class="name">Upload</span></a>
+                                                  </li>
+                                      </ul>
+                                    </li>
+                                    <li class="nav-item parent"><a href="#" role="button" aria-expanded="false" class="nav-link"><span class="icon s7-diamond"></span><span>Tables</span></a>
+                                      <ul class="mai-nav-tabs-sub mai-sub-nav nav">
+                                                  <li class="nav-item"><a href="tables-general.html" class="nav-link"><span class="icon s7-box2"></span><span class="name">General</span></a>
+                                                  </li>
+                                                  <li class="nav-item"><a href="tables-datatables.html" class="nav-link"><span class="icon s7-box2"></span><span class="name">Data Tables</span></a>
+                                                  </li>
+                                      </ul>
+                                    </li>
+                                    <li class="nav-item parent"><a href="#" role="button" aria-expanded="false" class="nav-link"><span class="icon s7-portfolio"></span><span>Pages</span></a>
+                                      <ul class="mai-nav-tabs-sub mai-sub-nav nav">
+                                                  <li class="nav-item"><a href="pages-profile.html" class="nav-link"><span class="icon s7-user"></span><span class="name">Profile</span></a>
+                                                  </li>
+                                                  <li class="nav-item"><a href="pages-pricing-tables.html" class="nav-link"><span class="icon s7-cash"></span><span class="name">Pricing</span></a>
+                                                  </li>
+                                                  <li class="nav-item"><a href="pages-invoice.html" class="nav-link"><span class="icon s7-wallet"></span><span class="name">Invoice</span></a>
+                                                  </li>
+                                                  <li class="nav-item dropdown parent"><a href="login.html" data-toggle="dropdown" class="nav-link"><span class="icon s7-diamond"></span><span class="name">Login</span></a>
+                                                              <div role="menu" class="dropdown-menu mai-sub-nav"><a href="pages-login.html" class="dropdown-item">Login</a><a href="pages-sign-up.html" class="dropdown-item">Sign Up</a><a href="pages-forgot-password.html" class="dropdown-item">Forgot Password</a>
+                                                              </div>
+                                                  </li>
+                                                  <li class="nav-item dropdown parent"><a href="mail.html" data-toggle="dropdown" class="nav-link"><span class="icon s7-mail"></span><span class="name">Mail</span></a>
+                                                              <div role="menu" class="dropdown-menu mai-sub-nav"><a href="email-inbox.html" class="dropdown-item">Inbox</a><a href="email-detail.html" class="dropdown-item">Detail</a><a href="email-compose.html" class="dropdown-item">Compose</a>
+                                                              </div>
+                                                  </li>
+                                                  <li class="nav-item dropdown parent"><a href="maps.html" data-toggle="dropdown" class="nav-link"><span class="icon s7-map-marker"></span><span class="name">Maps</span></a>
+                                                              <div role="menu" class="dropdown-menu mai-sub-nav"><a href="maps-google.html" class="dropdown-item">Google Maps</a><a href="maps-vector.html" class="dropdown-item">Vector Maps</a>
+                                                              </div>
+                                                  </li>
+                                                  <li class="nav-item dropdown parent"><a href="extra.html" data-toggle="dropdown" class="nav-link"><span class="icon s7-diamond"></span><span class="name">Extra Pages</span></a>
+                                                              <div role="menu" class="dropdown-menu mai-sub-nav"><a href="pages-blank.html" class="dropdown-item">Blank Page</a><a href="pages-blank-header.html" class="dropdown-item">Blank Page Header</a><a href="pages-404.html" class="dropdown-item">404 Page</a><a href="pages-gallery.html" class="dropdown-item">Gallery</a><a href="pages-calendar.html" class="dropdown-item">Calendar</a>
+                                                              </div>
+                                                  </li>
+                                      </ul>
+                                    </li>
+                                    <li class="nav-item parent"><a href="#" role="button" aria-expanded="false" class="nav-link"><span class="icon s7-display1"></span><span>Charts</span></a>
+                                      <ul class="mai-nav-tabs-sub mai-sub-nav nav">
+                                                  <li class="nav-item"><a href="charts-flot.html" class="nav-link"><span class="icon s7-graph"></span><span class="name">Flot</span></a>
+                                                  </li>
+                                                  <li class="nav-item"><a href="charts-sparklines.html" class="nav-link"><span class="icon s7-graph1"></span><span class="name">Sparklines</span></a>
+                                                  </li>
+                                                  <li class="nav-item"><a href="charts-morris.html" class="nav-link"><span class="icon s7-graph3"></span><span class="name">Morris.js</span></a>
+                                                  </li>
+                                                  <li class="nav-item"><a href="charts-chartjs.html" class="nav-link"><span class="icon s7-graph2"></span><span class="name">Chart.js</span></a>
+                                                  </li>
+                                      </ul>
+                                    </li>
+                                    <li class="nav-item parent"><a href="#" role="button" aria-expanded="false" class="nav-link"><span class="icon s7-tools"></span><span>Layouts</span></a>
+                                      <ul class="mai-nav-tabs-sub mai-sub-nav nav">
+                                                  <li class="nav-item dropdown parent mega-menu"><a href="mega-menu.html" data-toggle="dropdown" class="nav-link"><span class="icon s7-ribbon"></span><span class="name">Mega Menu</span></a>
+                                                              <div role="menu" class="dropdown-menu mai-mega-menu mai-sub-nav">
+                                                                <div class="mai-mega-menu-row">
+                                                                  <div class="mai-mega-menu-column">
+                                                                              <div class="mai-mega-menu-section parent"><a href="#" class="nav-link"><span class="icon s7-note2"></span><span>Forms</span></a>
+                                                                                <div class="mai-mega-menu-sub-items mai-sub-nav"><a href="form-elements.html" class="dropdown-item">Elements</a><a href="form-validation.html" class="dropdown-item active">Validation</a><a href="form-masks.html" class="dropdown-item">Input Masks</a><a href="form-xeditable.html" class="dropdown-item">X Editable</a><a href="form-multiselect.html" class="dropdown-item">Multiselect</a><a href="form-wizard.html" class="dropdown-item">Wizard</a><a href="form-upload.html" class="dropdown-item">Multi Upload</a><a href="form-editor.html" class="dropdown-item">Text Editor</a>
+                                                                                </div>
+                                                                              </div>
+                                                                  </div>
+                                                                  <div class="mai-mega-menu-column">
+                                                                              <div class="mai-mega-menu-section parent"><a href="#" class="nav-link"><span class="icon s7-keypad"></span><span>Tables</span></a>
+                                                                                <div class="mai-mega-menu-sub-items mai-sub-nav"><a href="tables-general.html" class="dropdown-item">General</a><a href="tables-datatables.html" class="dropdown-item">Datatables</a>
+                                                                                </div>
+                                                                              </div>
+                                                                  </div>
+                                                                  <div class="mai-mega-menu-column">
+                                                                              <div class="mai-mega-menu-section parent"><a href="#" class="nav-link"><span class="icon s7-bookmarks"></span><span>Pages</span></a>
+                                                                                <div class="mai-mega-menu-sub-items mai-sub-nav"><a href="pages-login.html" class="dropdown-item">Login</a><a href="pages-sign-up.html" class="dropdown-item">Sign Up</a><a href="pages-forgot-password.html" class="dropdown-item">Forgot Password</a><a href="pages-blank.html" class="dropdown-item">Blank Page</a><a href="pages-calendar.html" class="dropdown-item">Calendar</a><a href="pages-gallery.html" class="dropdown-item">Gallery</a><a href="pages-pricing-tables.html" class="dropdown-item">Pricing Tables</a><a href="pages-invoice.html" class="dropdown-item">Invoice</a><a href="pages-profile.html" class="dropdown-item">Profile</a><a href="pages-404.html" class="dropdown-item">404 Page</a>
+                                                                                </div>
+                                                                              </div>
+                                                                  </div>
+                                                                  <div class="mai-mega-menu-column">
+                                                                              <div class="mai-mega-menu-section parent"><a href="#" class="nav-link"><span class="icon s7-map"></span><span>Maps</span></a>
+                                                                                <div class="mai-mega-menu-sub-items mai-sub-nav"><a href="maps-google.html" class="dropdown-item">Google Maps</a><a href="maps-vector.html" class="dropdown-item">Vector Maps</a>
+                                                                                </div>
+                                                                              </div>
+                                                                              <div class="mai-mega-menu-section parent"><a href="#" class="nav-link"><span class="icon s7-mail"></span><span>Mail</span></a>
+                                                                                <div class="mai-mega-menu-sub-items mai-sub-nav"><a href="email-inbox.html" class="dropdown-item">Inbox</a><a href="email-detail.html" class="dropdown-item">Detail</a><a href="email-compose.html" class="dropdown-item">Compose</a>
+                                                                                </div>
+                                                                              </div>
+                                                                  </div>
+                                                                </div>
+                                                              </div>
+                                                  </li>
+                                      </ul>
+                                    </li>
+                        </ul>
+                      </div>
+                    </nav>
+          <!--Search input-->
+          <div class="search">
+            <input type="text" placeholder="Search..." name="q"><span class="s7-search"></span>
+          </div>
+        </div>
+      </nav>
+      <div class="main-content container">
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="panel panel-default">
+              <div class="panel-heading panel-heading-divider">Basic Form<span class="panel-subtitle">This is the default bootstrap form layout</span></div>
+              <div class="panel-body">
+                <form action="#" data-parsley-validate="" novalidate="">
+                  <div class="form-group">
+                    <label>User Name</label>
+                    <input type="text" name="nick" parsley-trigger="change" required="" placeholder="Enter user name" autocomplete="off" class="form-control">
+                  </div>
+                  <div class="form-group">
+                    <label>Email address</label>
+                    <input type="email" name="email" parsley-trigger="change" required="" placeholder="Enter email" autocomplete="off" class="form-control">
+                  </div>
+                  <div class="form-group">
+                    <label>Password</label>
+                    <input id="pass1" type="password" placeholder="Password" required="" class="form-control">
+                  </div>
+                  <div class="form-group">
+                    <label>Repeat Password</label>
+                    <input data-parsley-equalto="#pass1" type="password" required="" placeholder="Password" class="form-control">
+                  </div>
+                  <div class="row pt-5">
+                    <div class="col-6">
+                      <label class="custom-control custom-checkbox mt-2">
+                        <input type="checkbox" class="custom-control-input"><span class="custom-control-indicator"></span><span class="custom-control-description">Remember me</span>
+                      </label>
+                    </div>
+                    <div class="col-6">
+                      <p class="text-right">
+                        <button type="submit" class="btn btn-space btn-primary">Submit</button>
+                        <button class="btn btn-space btn-secondary">Cancel</button>
+                      </p>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="panel panel-default">
+              <div class="panel-heading panel-heading-divider">Horizontal Form<span class="panel-subtitle">This is the horizontal bootstrap layout</span></div>
+              <div class="panel-body">
+                <form data-parsley-validate="" novalidate="">
+                  <div class="form-group row">
+                    <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
+                    <div class="col-sm-10">
+                      <input id="inputEmail3" type="email" required="" parsley-type="email" placeholder="Email" class="form-control">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="inputPassword3" class="col-sm-2 col-form-label">Password</label>
+                    <div class="col-sm-10">
+                      <input id="inputPassword3" type="password" required="" placeholder="Password" class="form-control">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="inputPassword3" class="col-sm-2 col-form-label">Web Site</label>
+                    <div class="col-sm-10">
+                      <input type="url" required="" parsley-type="url" placeholder="URL" class="form-control">
+                    </div>
+                  </div>
+                  <div class="row pt-5">
+                    <div class="col-6">
+                      <label class="custom-control custom-checkbox mt-2">
+                        <input type="checkbox" class="custom-control-input"><span class="custom-control-indicator"></span><span class="custom-control-description">Remember me</span>
+                      </label>
+                    </div>
+                    <div class="col-6">
+                      <p class="text-right">
+                        <button type="submit" class="btn btn-space btn-primary">Submit</button>
+                        <button class="btn btn-space btn-secondary">Cancel</button>
+                      </p>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="panel panel-default">
+              <div class="panel-heading panel-heading-divider">Validation Types<span class="panel-subtitle">Parsley different validation types</span></div>
+              <div class="panel-body">
+                <form>
+                  <div class="form-group row">
+                    <label class="col-sm-3 col-form-label text-right">Required</label>
+                    <div class="col-sm-6">
+                      <input type="text" required="" placeholder="Type something" class="form-control">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label class="col-sm-3 col-form-label text-right">Min Length</label>
+                    <div class="col-sm-6">
+                      <input type="text" required="" data-parsley-minlength="6" placeholder="Min 6 chars." class="form-control">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label class="col-sm-3 col-form-label text-right">Max Length</label>
+                    <div class="col-sm-6">
+                      <input type="text" required="" data-parsley-maxlength="6" placeholder="Max 6 chars." class="form-control">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label class="col-sm-3 col-form-label text-right">Range Length</label>
+                    <div class="col-sm-6">
+                      <input type="text" required="" data-parsley-length="[5,10]" placeholder="Text between 5 - 10 chars length" class="form-control">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label class="col-sm-3 col-form-label text-right">Min Value</label>
+                    <div class="col-sm-6">
+                      <input type="text" required="" data-parsley-min="6" placeholder="Min value is 6" class="form-control">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label class="col-sm-3 col-form-label text-right">Max Value</label>
+                    <div class="col-sm-6">
+                      <input type="text" required="" data-parsley-max="6" placeholder="Max value is 6" class="form-control">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label class="col-sm-3 col-form-label text-right">Range Value</label>
+                    <div class="col-sm-6">
+                      <input required="" type="text" min="6" max="100" placeholder="Number between 6 - 100" class="form-control">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label class="col-sm-3 col-form-label text-right">Regular Exp</label>
+                    <div class="col-sm-6">
+                      <input type="text" required="" data-parsley-pattern="#[A-Fa-f0-9]{6}" placeholder="Hex. Color" class="form-control">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label class="col-sm-3 col-form-label text-right">Equal To</label>
+                    <div class="col-sm-3">
+                      <input id="pass2" type="password" required="" placeholder="Password" class="form-control">
+                    </div>
+                    <div class="col-sm-3">
+                      <input type="password" required="" data-parsley-equalto="#pass2" placeholder="Re-Type Password" class="form-control">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label class="col-sm-3 col-form-label text-right">Min check</label>
+                    <div class="col-sm-6">
+                      <div class="custom-controls-stacked">
+                        <label class="custom-control custom-checkbox">
+                          <input id="ck1" name="ck1" type="checkbox" data-parsley-multiple="groups" value="bar" data-parsley-mincheck="2" data-parsley-errors-container="#error-container1" class="custom-control-input"><span class="custom-control-indicator"></span><span class="custom-control-description">Option 1</span>
+                        </label>
+                        <label class="custom-control custom-checkbox">
+                          <input id="ck2" name="ck2" type="checkbox" data-parsley-multiple="groups" value="bar2" data-parsley-mincheck="2" data-parsley-errors-container="#error-container1" class="custom-control-input"><span class="custom-control-indicator"></span><span class="custom-control-description">Option 2</span>
+                        </label>
+                        <label class="custom-control custom-checkbox">
+                          <input id="ck3" name="ck3" type="checkbox" data-parsley-multiple="groups" value="bar3" data-parsley-mincheck="2" required="" data-parsley-errors-container="#error-container1" class="custom-control-input"><span class="custom-control-indicator"></span><span class="custom-control-description">Option 3</span>
+                        </label>
+                        <div id="error-container1"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label class="col-sm-3 col-form-label text-right">Max check</label>
+                    <div class="col-sm-6">
+                      <div class="custom-controls-stacked">
+                        <label class="custom-control custom-checkbox">
+                          <input type="checkbox" value="bar" id="e1" data-parsley-multiple="group1" data-parsley-errors-container="#error-container2" class="custom-control-input"><span class="custom-control-indicator"></span><span class="custom-control-description">Option 1</span>
+                        </label>
+                        <label class="custom-control custom-checkbox">
+                          <input type="checkbox" value="bar" id="e2" data-parsley-multiple="group1" data-parsley-errors-container="#error-container2" class="custom-control-input"><span class="custom-control-indicator"></span><span class="custom-control-description">Option 2</span>
+                        </label>
+                        <label class="custom-control custom-checkbox">
+                          <input type="checkbox" value="bar" id="e3" data-parsley-multiple="group1" data-parsley-maxcheck="1" data-parsley-errors-container="#error-container2" class="custom-control-input"><span class="custom-control-indicator"></span><span class="custom-control-description">Option 3</span>
+                        </label>
+                        <div id="error-container2"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label class="col-sm-3 col-form-label text-right">E-Mail</label>
+                    <div class="col-sm-6">
+                      <input type="email" required="" parsley-type="email" placeholder="Enter a valid e-mail" class="form-control">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label class="col-sm-3 col-form-label text-right">URL</label>
+                    <div class="col-sm-6">
+                      <input parsley-type="url" type="url" required="" placeholder="URL" class="form-control">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label class="col-sm-3 col-form-label text-right">Digits</label>
+                    <div class="col-sm-6">
+                      <input data-parsley-type="digits" type="text" required="" placeholder="Enter only digits" class="form-control">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label class="col-sm-3 col-form-label text-right">Number</label>
+                    <div class="col-sm-6">
+                      <input data-parsley-type="number" type="text" required="" placeholder="Enter only numbers" class="form-control">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label class="col-sm-3 col-form-label text-right">Alphanumeric</label>
+                    <div class="col-sm-6">
+                      <input data-parsley-type="alphanum" type="text" required="" placeholder="Enter alphanumeric value" class="form-control">
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label class="col-sm-3 col-form-label text-right">Textarea</label>
+                    <div class="col-sm-6">
+                      <textarea required="" class="form-control"></textarea>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <div class="col-sm-2 col-sm-10">
+                      <button type="submit" class="btn btn-space btn-primary">Submit</button>
+                      <button class="btn btn-space btn-secondary">Cancel</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="assets/lib/jquery/jquery.min.js" type="text/javascript"></script>
+    <script src="assets/lib/tether/js/tether.min.js" type="text/javascript"></script>
+    <script src="assets/lib/perfect-scrollbar/js/perfect-scrollbar.jquery.min.js" type="text/javascript"></script>
+    <script src="assets/lib/bootstrap/dist/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="assets/js/app.js" type="text/javascript"></script>
+    <script src="assets/lib/parsley/parsley.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+      $(document).ready(function(){
+      	//initialize the javascript
+      	App.init();
+      	$('form').parsley();
+      });
+    </script>
+  </body>
+</html>
