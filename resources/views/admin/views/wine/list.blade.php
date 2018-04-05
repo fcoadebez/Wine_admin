@@ -41,7 +41,7 @@
 			<div class="row">
 				<div class="col-sm-12">
 					<div class="panel panel-default panel-table">
-						<div class="panel-heading">Listes des étapes
+						<div class="panel-heading">Listes des vins
 							<div class="tools">
 								<a href="{{ URL::to("/admin/wine/add") }}">
 									<span class="icon s7-plus"></span>
@@ -73,16 +73,16 @@
 								<tr>
 									<th>Dénomination</th>
 									<th>Annee</th>
-									<th>categorie</th>
+									<th>Type</th>
 									<th>Actions</th>
 								</tr>
 								</thead>
 								<tbody>
 								@foreach($vins as $vin)
 									<tr>
-										<td>{{ $vin->denomination }}</td>
-										<td>{{ $vin->annee }}</td>
-										<td>{{ $vin->categorie }}</td>
+										<td>{{ $vin->name }}</td>
+										<td>{{ $vin->year }}</td>
+										<td>{{ $vin->rType()->first()->type }}</td>
 										<td>
 											@if($vin->order != "1")
 												<a href="{{ URL::to("/admin/wine/".$vin->id."/order/up") }}">

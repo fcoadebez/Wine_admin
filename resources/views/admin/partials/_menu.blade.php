@@ -11,7 +11,7 @@
 			</button>
 			<div id="mai-navbar-collapse" class="navbar-collapse collapse mai-nav-tabs">
 				<ul class="nav navbar-nav">
-					<li class="nav-item parent {{ (str_contains(Request::path(), 'admin/vins') ? 'open' : '') }}">
+					<li class="nav-item parent {{ (str_contains(Request::path(), 'admin/wine') ? 'open' : '') }}">
 						<a href="{{ URL::to('/admin/wine/list') }}" role="button" aria-expanded="false" class="nav-link">
 							<span class="icon s7-wine"></span>
 							<span>Vins</span>

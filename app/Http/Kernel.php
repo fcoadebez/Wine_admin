@@ -17,6 +17,7 @@ class Kernel extends HttpKernel
         \Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode::class,
         \Illuminate\Foundation\Http\Middleware\ValidatePostSize::class,
         \App\Http\Middleware\TrimStrings::class,
+        \Barryvdh\Cors\HandleCors::class,
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
     ];
 
@@ -54,6 +55,7 @@ class Kernel extends HttpKernel
         'api.token' => \App\Http\Middleware\APIToken::class,
         'auth' => \Illuminate\Auth\Middleware\Authenticate::class,
         'auth.session' => \App\Http\Middleware\AuthSession::class,
+        'cors' => \App\Http\Middleware\Cors::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'bindings' => \Illuminate\Routing\Middleware\SubstituteBindings::class,
         'can' => \Illuminate\Auth\Middleware\Authorize::class,

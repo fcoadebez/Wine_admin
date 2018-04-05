@@ -13,13 +13,7 @@ class QuestionReponse extends Model
     protected $guarded = ['id'];
 
     // RELATIONS
-    public function rUser(){
-        return $this->hasOne("App\Model\User", "id", "user_id");
-    }
     public function rQuestion(){
         return $this->hasOne("App\Model\Question", "id", "question_id");
-    }
-    public function rQuestionNext(){
-        return $this->hasOne("App\Model\Question", "id", "question_next_id");
     }
 }

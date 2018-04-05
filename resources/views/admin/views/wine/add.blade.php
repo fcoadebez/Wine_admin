@@ -63,9 +63,9 @@
                                 <label class="col-3 col-form-label text-right">Catégorie</label>
                                 <div class="col-6">
                                     <select id="categorie" name="categorie">
-                                      <option value="1" selected>Blanc</option>
-                                      <option value="2">Rouge</option>
-                                      <option value="3">Rosé</option>
+                                      @foreach($wine_type as $type)
+                                        <option value="{{ $type->id }}">{{ $type->type }}</option>
+                                      @endforeach
                                     </select>
                                 </div>
                             </div>
@@ -80,14 +80,6 @@
                                 <div class="col-6">
                                     <input type="text" name="prix" maxlength="150" class="form-control">
                                 </div>
-                            </div>
-                            <div class="form-group row tastes">
-                                <label class="col-3 col-form-label text-right">Arômes</label>
-                                <div class="col-6 ui-widget">
-                                    <input type="text" id="tastes" name="taste" maxlength="250" class="form-control" autocomplete="on">
-                                </div>
-                               
-
                             </div>
                             <div class="form-group row">
 

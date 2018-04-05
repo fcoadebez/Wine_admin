@@ -11,13 +11,15 @@
 |
 */
 
-
 Route::group([
     "middleware" => "admin.custom.exception",
     "prefix" => 'admin'], function () {
     Route::get('/', 'Admin\HomeController@home');
     Route::get('/user/login', 'Admin\UserController@login');
     Route::post('/user/login', 'Admin\UserController@login');
+
+    Route::post('/api/signup', 'API\ClientController@signup');
+    Route::post('/api/login', 'API\ClientController@login');
 
     Route::group(["middleware" => "auth.session"], function () {
 

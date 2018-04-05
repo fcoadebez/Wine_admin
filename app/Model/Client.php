@@ -12,8 +12,4 @@ class Client extends Model
     protected $primaryKey = 'id';
     protected $guarded = ['id'];
 
-    // RELATIONS
-    public function rDevis(){
-        return $this->hasMany("App\Model\Devis", "client_id", "id");
-    }
 }

@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use Carbon\Carbon;
 use App\Model\Wine;
-use App\Model\Taste;
+use App\Model\WineType;
 use App\Model\Question;
 use App\Model\QuestionReponse;
 use Illuminate\Http\Request;
@@ -24,23 +24,11 @@ class WineController extends Controller
         return view("admin.views.wine.list")->with($data);
     }
 
-    public function autocomplete(Request $request)
-    {
-        $term=$request->term;
-        $data = Taste::where('name','LIKE','%'.$term.'%')
-        ->take(10)
-        ->get();
-        $result=array();
-
-        foreach ($data as $key => $v){
-            array_push($result, $v->name);
-        }
-        return response()->json($result);
-    }
-
     public function add(Request $request)
     {
         $data = [];
+
+        $data["wine_type"] = WineType::get();
 
         $response = function ($data) {
             return view("admin.views.wine.add")->with($data);
@@ -77,14 +65,14 @@ class WineController extends Controller
             $request->file('photo')->move(public_path() . "/vins/", $photo_name);
 
             $vin = new Wine();
-            $vin->denomination = $request->input("denomination");
-            $vin->annee = $request->input("millesime");
+            $vin->name = $request->input("denomination");
+            $vin->year = $request->input("millesime");
             if ($request->hasFile("photo")) {
                 $vin->photo = $photo_name;
             }
-            $vin->categorie = $request->input("categorie");
+            $vin->wine_type_id = $request->input("categorie");
             $vin->description = $request->input("description");
-            $vin->prix = $request->input("prix");
+            $vin->price = $request->input("prix");
 
             if (!$vin->save())
                 $error++;
@@ -99,8 +87,6 @@ class WineController extends Controller
                 return $response($data);
             }
 
-
-
             DB::commit();
             $data["alert"] = [
                 "type" => "success",
@@ -109,13 +95,6 @@ class WineController extends Controller
             ];
 
             return redirect("/admin/wine/list");
-        } else {
-            $tastes = Taste::get();
-            $result = [];
-            foreach ($tastes as $taste) {
-                array_push($result, $taste->name);
-            }
-            return $response($result);
         }
 
         return $response($data);
@@ -125,6 +104,7 @@ class WineController extends Controller
     {
         $data = [];
         $data["id"] = $id;
+        $data["wine_type"] = WineType::get();
         $data["wine"] = Wine::where("id", "=", $id)->first();
 
         $response = function ($data) {
@@ -172,11 +152,11 @@ class WineController extends Controller
                 
             }
 
-            $data["wine"]->denomination = $request->input("denomination");
-            $data["wine"]->annee = $request->input("millesime");
-            $data["wine"]->categorie = $request->input("categorie");
+            $data["wine"]->name = $request->input("denomination");
+            $data["wine"]->year = $request->input("millesime");
+            $data["wine"]->wine_type_id = $request->input("categorie");
             $data["wine"]->description = $request->input("description");
-            $data["wine"]->prix = $request->input("prix");
+            $data["wine"]->price = $request->input("prix");
 
             if (!$data["wine"]->save())
                 $error++;
