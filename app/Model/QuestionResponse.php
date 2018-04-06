@@ -4,11 +4,11 @@ namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
 
-class QuestionReponse extends Model
+class QuestionResponse extends Model
 {
     // SETTINGS
     public $timestamps = false;
-    protected $table = 'question_reponse';
+    protected $table = 'question_response';
     protected $primaryKey = 'id';
     protected $guarded = ['id'];
 

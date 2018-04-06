@@ -17,8 +17,8 @@
 							<span>Vins</span>
 						</a>
 					</li>
-					<li class="nav-item parent {{ (str_contains(Request::path(), 'admin/questions') ? 'open' : '') }}">
-						<a href="{{ URL::to('/admin/questions/list') }}" role="button" aria-expanded="false" class="nav-link">
+					<li class="nav-item parent {{ (str_contains(Request::path(), 'admin/question') ? 'open' : '') }}">
+						<a href="{{ URL::to('/admin/question/list') }}" role="button" aria-expanded="false" class="nav-link">
 							<span class="icon s7-note2"></span>
 							<span>Questions</span>
 						</a>

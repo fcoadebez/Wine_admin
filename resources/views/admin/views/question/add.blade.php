@@ -1,7 +1,7 @@
 @extends('admin.layout')
 
 @section('html_title')Ajout | Question | Administration @endsection
-@section('html_body')id="configurator_add"@endsection
+@section('html_body')id="question_add"@endsection
 @section('html_js')
 <script type="text/javascript">
 </script>
@@ -19,7 +19,7 @@
             <div class="col-md-12">
                 <div class="panel panel-default">
                     <div class="panel-heading panel-heading-divider">
-                        Ajout d'un vin
+                        Ajout d'une question
                         <span class="panel-subtitle">Veuillez remplir le formulaire ci dessous</span>
                     </div>
                     <div class="panel-body">
@@ -38,49 +38,43 @@
 	                    @endif
 
                         <br/>
-                        <form method="POST" action="{{ URL::to('/admin/wine/add') }}" enctype="multipart/form-data">
+                        <form id="question" method="POST" action="{{ URL::to('/admin/question/add') }}">
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
                             <div class="form-group row">
-                                <label class="col-3 col-form-label text-right">Dénomination</label>
+                                <label class="col-3 col-form-label text-right">Question</label>
                                 <div class="col-6">
-                                    <input type="text" name="denomination" maxlength="150" class="form-control">
+                                    <input type="text" name="question" maxlength="250" class="form-control">
                                 </div>
                             </div>
-                            <div class="form-group row">
-                                <label class="col-3 col-form-label text-right">Millésime</label>
-                                <div class="col-6">
-                                    <input type="text" name="millesime" maxlength="150" class="form-control">
-                                </div>
+                            <div class="responses">
+                              <div class="response_container">
+                                  <div class="response" style="position: relative;">
+                                      <div class="form-group row">
+                                          <label class="col-3 col-form-label text-right">Réponse</label>
+                                          <div class="col-6">
+                                              <input type="text" name="response[]" maxlength="250" class="form-control">
+                                          </div>
+                                      </div>
+                                      <div class="profil">
+                                          <div class="form-group row">
+                                              <label class="col-3 col-form-label text-right">Profil principal</label>
+                                              <div class="col-6">
+                                                  <select id="profil" name="profil[]">
+                                                    @foreach($profils as $profil)
+                                                      <option value="{{ $profil->id }}">{{ $profil->profil }}</option>
+                                                    @endforeach
+                                                  </select>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                              
                             </div>
-                            <div class="form-group row">
-                                <label class="col-3 col-form-label text-right">Photo</label>
-                                <div class="col-6">
-                                    <input type="file" name="photo" />
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label class="col-3 col-form-label text-right">Catégorie</label>
-                                <div class="col-6">
-                                    <select id="categorie" name="categorie">
-                                      @foreach($wine_type as $type)
-                                        <option value="{{ $type->id }}">{{ $type->type }}</option>
-                                      @endforeach
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label class="col-3 col-form-label text-right">Description</label>
-                                <div class="col-6">
-                                    <input type="text" name="description" maxlength="150" class="form-control">
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label class="col-3 col-form-label text-right">Prix</label>
-                                <div class="col-6">
-                                    <input type="text" name="prix" maxlength="150" class="form-control">
-                                </div>
-                            </div>
+                            <p class="text-center">
+                                <a class="add_response" href="{{ URL::to('/admin/wine/list') }}" class="btn btn-space btn-secondary">Ajouter une réponse</a>
+                            </p>
                             <div class="form-group row">
 
                                 <div class="col-12">

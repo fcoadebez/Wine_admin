@@ -6,7 +6,8 @@ use Carbon\Carbon;
 use App\Model\Wine;
 use App\Model\WineType;
 use App\Model\Question;
-use App\Model\QuestionReponse;
+use App\Model\Profil;
+use App\Model\QuestionResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use App\Http\Controllers\Controller;
@@ -24,81 +25,76 @@ class QuestionController extends Controller
         return view("admin.views.question.list")->with($data);
     }
 
-    // public function add(Request $request)
-    // {
-    //     $data = [];
+    public function add(Request $request)
+    {
+        $data = [];
 
-    //     $data["wine_type"] = WineType::get();
+        $data["profils"] = Profil::get();
 
-    //     $response = function ($data) {
-    //         return view("admin.views.wine.add")->with($data);
-    //     };
+        $response = function ($data) {
+            return view("admin.views.question.add")->with($data);
+        };
 
-    //     if ($request->isMethod("POST")) {
-    //         $valid = Validator($request->all(),
-    //             [
-    //                 'denomination' => 'required|min:2|max:200',
-    //                 'millesime' => 'required',
-    //                 'photo' => 'required',
-    //                 'categorie' => 'required',
-    //                 'description' => 'required|min:2|max:200',
-    //                 'prix' => 'required'
-    //             ]);
+        if ($request->isMethod("POST")) {
+            $valid = Validator($request->all(),
+                [
+                    'question' => 'required',
+                    'response' => 'required',
+                ]);
 
-    //         if ($valid->fails()) {
-    //             $data["alert"] = [
-    //                 "type" => "warning",
-    //                 "icon" => "attention",
-    //                 "message" => "Merci de compléter tous les champs"
-    //             ];
-    //         }
+            if ($valid->fails()) {
+                $data["alert"] = [
+                    "type" => "warning",
+                    "icon" => "attention",
+                    "message" => "Merci de compléter tous les champs"
+                ];
+            }
 
-    //         DB::beginTransaction();
-    //         $error = 0;
+            DB::beginTransaction();
+            $error = 0;
 
-    //         $timestamp = Carbon::now()->timestamp;
+            $question = new Question();
+            $question->question = $request->input("question");
 
-    //         $photo = $timestamp . "_" . $request->file("photo")->getClientOriginalName();
+            if (!$question->save())
+                $error++;
 
-    //         $photo_name = str_replace(" ", "_", $photo);
+            if ($error >= 1) {
+                DB::rollback();
+                $data["alert"] = [
+                    "type" => "danger",
+                    "icon" => "attention",
+                    "message" => "Une erreur est survenue durant l'ajout de la question. Merci de réessayer ultérieurement."
+                ];
+                return $response($data);
+            }
 
-    //         $request->file('photo')->move(public_path() . "/vins/", $photo_name);
+            DB::commit();
 
-    //         $vin = new Wine();
-    //         $vin->name = $request->input("denomination");
-    //         $vin->year = $request->input("millesime");
-    //         if ($request->hasFile("photo")) {
-    //             $vin->photo = $photo_name;
-    //         }
-    //         $vin->wine_type_id = $request->input("categorie");
-    //         $vin->description = $request->input("description");
-    //         $vin->price = $request->input("prix");
+            $current_question = Question::where('question', '=', $request->input("question"))->first();
 
-    //         if (!$vin->save())
-    //             $error++;
+            $responses = $request->input("response");
+            $profils = $request->input("profil");
 
-    //         if ($error >= 1) {
-    //             DB::rollback();
-    //             $data["alert"] = [
-    //                 "type" => "danger",
-    //                 "icon" => "attention",
-    //                 "message" => "Une erreur est survenue durant l'ajout du vin. Merci de réessayer ultérieurement."
-    //             ];
-    //             return $response($data);
-    //         }
+            for($i=0; $i<count($responses); $i++) {
+              $response = new QuestionResponse();
+              $response->profil_id = $profils[$i];
+              $response->question_id = $current_question->id;
+              $response->response = $responses[$i];
+              $response->save();
+            }
 
-    //         DB::commit();
-    //         $data["alert"] = [
-    //             "type" => "success",
-    //             "icon" => "check",
-    //             "message" => "Vin ajouté avec succès."
-    //         ];
+            $data["alert"] = [
+                "type" => "success",
+                "icon" => "check",
+                "message" => "Question ajouté avec succès."
+            ];
 
-    //         return redirect("/admin/wine/list");
-    //     }
+            return redirect("/admin/question/list");
+        }
 
-    //     return $response($data);
-    // }
+        return $response($data);
+    }
 
     // public function edit(Request $request, $id)
     // {
