@@ -23,6 +23,7 @@ var App = (function () {
 
 
   if ($('#question_add').length) {
+    console.log('test');
     var response_count = 2;
     $('.add_response').click(function (e) {
       e.preventDefault();
@@ -38,8 +39,42 @@ var App = (function () {
       });
     });
 
+    $('.delete_response').click(function (e) {
+      e.preventDefault();
+      $(this).parent().remove();
+    });
+
 
   }
+
+
+  var response_count = 2;
+  $('.add_response').click(function (e) {
+    console.log('test');
+    e.preventDefault();
+    var last_form_group = $('.responses .form-group').last();
+    $('.responses').append($('.response_container').html());
+
+    var last_response = $('.responses .response').last();
+    $(last_response).append("<a style='position: absolute; right: 200px; top: 0;' class='btn btn-space btn-secondary delete_response'><span class='icon s7-close'></span></a>");
+    response_count++;
+    $('.delete_response').click(function (e) {
+      e.preventDefault();
+      if ($('.delete_response').length > 1) {
+        $(this).parent().remove();
+      }
+    });
+  });
+
+  $('.delete_response').click(function (e) {
+    e.preventDefault();
+    if ($('.delete_response').length > 1) {
+      $(this).parent().remove();
+    }
+  });
+
+
+
 
   // Main tabs active state sync
   function tabSync() {

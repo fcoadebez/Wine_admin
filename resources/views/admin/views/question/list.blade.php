@@ -71,44 +71,26 @@
 							<table id="table1" class="table table-striped table-hover">
 								<thead>
 								<tr>
-									<th>Dénomination</th>
-									<th>Annee</th>
-									<th>Type</th>
+									<th>Question</th>
+									<th>Nombre de réponses</th>
 									<th>Actions</th>
 								</tr>
 								</thead>
 								<tbody>
-								{{--  @foreach($vins as $vin)
+								 @foreach($questions as $question)
 									<tr>
-										<td>{{ $vin->name }}</td>
-										<td>{{ $vin->year }}</td>
-										<td>{{ $vin->rType()->first()->type }}</td>
+										<td>{{ $question->question }}</td>
+                    <td>{{count($question->rQuestionResponse()->get())}}</td>
 										<td>
-											@if($vin->order != "1")
-												<a href="{{ URL::to("/admin/wine/".$vin->id."/order/up") }}">
-													<span class="icon s7-angle-up"></span>
-												</a>
-											@else
-												&nbsp; &nbsp; &nbsp;
-											@endif
-
-											@if($vin->order != $vin->count())
-												<a href="{{ URL::to("/admin/wine/".$vin->id."/order/down") }}">
-													<span class="icon s7-angle-down"></span>
-												</a>
-											@else
-												&nbsp; &nbsp; &nbsp;
-											@endif
-
-											<a href="{{ URL::to("/admin/wine/".$vin->id."/edit") }}" title="Edition deu vin">
+											<a href="{{ URL::to("/admin/question/".$question->id."/edit") }}" title="Edition de la question">
 												<span class="icon s7-edit"></span>
 											</a>
-											<a href="{{ URL::to("/admin/wine/".$vin->id."/remove") }}" title="Supprimer le vin">
+											<a href="{{ URL::to("/admin/question/".$question->id."/remove") }}" title="Supprimer la question">
 												<span class="icon s7-trash"></span>
 											</a>
 										</td>
 									</tr>
-								@endforeach  --}}
+								@endforeach 
 								</tbody>
 							</table>
 						</div>

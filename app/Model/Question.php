@@ -13,7 +13,7 @@ class Question extends Model
     protected $guarded = ['id'];
 
     // RELATIONS
-    public function rQuestionReponses(){
-        return $this->hasMany("App\Model\QuestionReponse", "question_id", "id");
+    public function rQuestionResponse(){
+        return $this->hasMany("App\Model\QuestionResponse", "question_id", "id");
     }
 }

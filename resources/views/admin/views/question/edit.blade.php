@@ -1,7 +1,7 @@
 @extends('admin.layout')
 
-@section('html_title')Edition | Vin | Administration @endsection
-@section('html_body')id="configurator_add"@endsection
+@section('html_title')Edition | Question | Administration @endsection
+@section('html_body')id="question_edit"@endsection
 @section('html_js')
 <script type="text/javascript">
 </script>
@@ -19,7 +19,7 @@
             <div class="col-md-12">
                 <div class="panel panel-default">
                     <div class="panel-heading panel-heading-divider">
-                        Modification du vin - {{ $wine->name }}
+                        Modification de la question - {{ $question->question }}
                     </div>
                     <div class="panel-body">
 	                    @if(isset($alert))
@@ -37,73 +37,60 @@
 	                    @endif
 
                         <br/>
-                        <form method="POST" action="{{ URL::to('/admin/wine/'.$id.'/edit') }}">
+                        <form method="POST" action="{{ URL::to('/admin/question/'.$id.'/edit') }}">
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
                             <div class="form-group row">
-                                <label class="col-3 col-form-label text-right">Dénomination</label>
+                                <label class="col-3 col-form-label text-right">Question</label>
                                 <div class="col-6">
-                                    <input type="text" name="denomination" maxlength="150" class="form-control" value="{{ $wine->name }}">
+                                    <input type="text" name="question" maxlength="150" class="form-control" value="{{ $question->question }}">
                                 </div>
                             </div>
 
-                            <div class="form-group row">
-                                <label class="col-3 col-form-label text-right">Millésime</label>
-                                <div class="col-6">
-                                    <input type="text" name="millesime" maxlength="150" class="form-control" value="{{ $wine->year }}">
+                            <div class="responses">
+                                <div class="response_container">
+                                  @foreach($question->rQuestionResponse()->get() as $response)
+                                    <div class="response" style="position: relative;">
+                                        <div class="form-group row">
+                                            <label class="col-3 col-form-label text-right">Réponse</label>
+                                            <div class="col-6">
+                                                <input type="text" name="response[]" maxlength="250" class="form-control" value="{{ $response->response }}">
+                                            </div>
+                                        </div>
+                                        <div class="profil">
+                                            <div class="form-group row">
+                                                <label class="col-3 col-form-label text-right">Profil principal</label>
+                                                <div class="col-6">
+                                                    <select id="profil" name="profil[]">
+                                                      @foreach($profils as $profil)
+                                                        @if($profil->id == $response->profil_id)
+                                                          <option value="{{ $profil->id }}" selected>{{ $profil->profil }}</option>
+                                                        @else
+                                                          <option value="{{ $profil->id }}">{{ $profil->profil }}</option>
+                                                        @endif
+                                                      @endforeach
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <a style='position: absolute; right: 200px; top: 0;' class='btn btn-space btn-secondary delete_response'><span class='icon s7-close'></span></a>
+                                    </div>
+                                  @endforeach
                                 </div>
-                            </div>
-                            <div class="form-group row">
-                                <label class="col-3 col-form-label text-right">Photo</label>
-                                <div class="col-9" >
-                                    <img src="/vins/{{ $wine->photo }}" style="max-height: 100px; margin-bottom: 20px;">
-                                </div>
-                                <div class="col-3"></div>
-                                <div class="col-6">
-                                    <input type="file" name="photo" />
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label class="col-3 col-form-label text-right">Catégorie</label>
-                                <div class="col-6">
-                                    <select id="categorie" name="categorie">
-                                      @foreach($wine_type as $type)
-                                        @if($wine->wine_type_id == $type->id)
-                                          <option value="{{ $type->id }}" selected>{{ $type->type }}</option>
-                                        @else
-                                          <option value="{{ $type->id }}">{{ $type->type }}</option>
-                                        @endif
-                                        
-                                      @endforeach
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label class="col-3 col-form-label text-right">Description</label>
-                                <div class="col-6">
-                                    <input type="text" name="description" maxlength="150" class="form-control" value="{{ $wine->description }}">
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label class="col-3 col-form-label text-right">Prix</label>
-                                <div class="col-6">
-                                    <input type="text" name="prix" maxlength="150" class="form-control" value="{{ $wine->price }}">
-                                </div>
-                            </div>
+                              </div>
+                              <p class="text-center">
+                                  <a class="add_response" href="{{ URL::to('/admin/question/list') }}" class="btn btn-space btn-secondary">Ajouter une réponse</a>
+                              </p>
 
                             <div class="form-group row">
                                 <div class="col-12">
                                     <br/>
                                     <p class="text-right">
                                         <button type="submit" class="btn btn-space btn-yellow btn-primary">Enregistrer</button>
-                                        <a href="{{ URL::to('/admin/wine/list') }}" class="btn btn-space btn-secondary">Annuler</a>
+                                        <a href="{{ URL::to('/admin/question/list') }}" class="btn btn-space btn-secondary">Annuler</a>
                                     </p>
                                 </div>
                             </div>
-
-                            
-                            
-
 
                         </form>
                     </div>

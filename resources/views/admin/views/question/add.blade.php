@@ -70,7 +70,6 @@
                                       </div>
                                   </div>
                               </div>
-                              
                             </div>
                             <p class="text-center">
                                 <a class="add_response" href="{{ URL::to('/admin/wine/list') }}" class="btn btn-space btn-secondary">Ajouter une réponse</a>
@@ -81,7 +80,7 @@
                                     <br/>
                                     <p class="text-right">
                                         <button type="submit" class="btn btn-space btn-yellow btn-primary">Enregistrer</button>
-                                        <a href="{{ URL::to('/admin/wine/list') }}" class="btn btn-space btn-secondary">Annuler</a>
+                                        <a href="{{ URL::to('/admin/question/list') }}" class="btn btn-space btn-secondary">Annuler</a>
                                     </p>
                                 </div>
                             </div>
