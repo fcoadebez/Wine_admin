@@ -70,6 +70,16 @@
                                 </div>
                             </div>
                             <div class="form-group row">
+                                <label class="col-3 col-form-label text-right">Profil principal</label>
+                                <div class="col-6">
+                                    <select id="profil" name="profil">
+                                      @foreach($profils as $profil)
+                                        <option value="{{ $profil->id }}">{{ $profil->profil }}</option>
+                                      @endforeach
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group row">
                                 <label class="col-3 col-form-label text-right">Description</label>
                                 <div class="col-6">
                                     <input type="text" name="description" maxlength="150" class="form-control">

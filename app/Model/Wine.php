@@ -16,4 +16,8 @@ class Wine extends Model
     public function rType(){
       return $this->hasOne("App\Model\WineType", "id", "wine_type_id");
     }
+
+    public function rProfil(){
+      return $this->hasOne("App\Model\WineProfil", "wine_id", "id");
+    }
 }

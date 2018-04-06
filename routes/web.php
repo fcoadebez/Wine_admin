@@ -33,14 +33,14 @@ Route::group([
         Route::get('/wine/{id}/order/down', 'Admin\WineController@order_down');
         Route::get('/wine/{id}/remove', 'Admin\WineController@remove');
 
-        Route::get('/questions/list', 'Admin\ConfiguratorController@list');
-        Route::get('/questions/add', 'Admin\ConfiguratorController@add');
-        Route::post('/questions/add', 'Admin\ConfiguratorController@add');
-        Route::get('/questions/{id}/edit', 'Admin\ConfiguratorController@edit');
-        Route::post('/questions/{id}/edit', 'Admin\ConfiguratorController@edit');
-        Route::get('/questions/{id}/order/up', 'Admin\ConfiguratorController@order_up');
-        Route::get('/questions/{id}/order/down', 'Admin\ConfiguratorController@order_down');
-        Route::get('/questions/{id}/remove', 'Admin\ConfiguratorController@remove');
+        Route::get('/questions/list', 'Admin\QuestionController@list');
+        Route::get('/questions/add', 'Admin\QuestionController@add');
+        Route::post('/questions/add', 'Admin\QuestionController@add');
+        Route::get('/questions/{id}/edit', 'Admin\QuestionController@edit');
+        Route::post('/questions/{id}/edit', 'Admin\QuestionController@edit');
+        Route::get('/questions/{id}/order/up', 'Admin\QuestionController@order_up');
+        Route::get('/questions/{id}/order/down', 'Admin\QuestionController@order_down');
+        Route::get('/questions/{id}/remove', 'Admin\QuestionController@remove');
 
         Route::get('/settings', 'Admin\SettingsController@index');
         Route::get('/settings/user/list', 'Admin\SettingsController@user_list');

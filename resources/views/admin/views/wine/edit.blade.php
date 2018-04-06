@@ -73,11 +73,24 @@
                                         @else
                                           <option value="{{ $type->id }}">{{ $type->type }}</option>
                                         @endif
-                                        
                                       @endforeach
                                     </select>
                                 </div>
                             </div>
+                            <div class="form-group row">
+                              <label class="col-3 col-form-label text-right">Profil principal</label>
+                              <div class="col-6">
+                                  <select id="profil" name="profil">
+                                    @foreach($profils as $profil)
+                                      @if($wine_profil->profil_id == $profil->id)
+                                        <option value="{{ $profil->id }}" selected>{{ $profil->profil }}</option>
+                                      @else
+                                        <option value="{{ $profil->id }}">{{ $profil->profil }}</option>
+                                      @endif
+                                    @endforeach
+                                  </select>
+                              </div>
+                          </div>
                             <div class="form-group row">
                                 <label class="col-3 col-form-label text-right">Description</label>
                                 <div class="col-6">

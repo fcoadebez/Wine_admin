@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use Carbon\Carbon;
 use App\Model\Wine;
 use App\Model\WineType;
+use App\Model\WineProfil;
+use App\Model\Profil;
 use App\Model\Question;
 use App\Model\QuestionReponse;
 use Illuminate\Http\Request;
@@ -29,6 +31,7 @@ class WineController extends Controller
         $data = [];
 
         $data["wine_type"] = WineType::get();
+        $data["profils"] = Profil::get();
 
         $response = function ($data) {
             return view("admin.views.wine.add")->with($data);
@@ -41,6 +44,7 @@ class WineController extends Controller
                     'millesime' => 'required',
                     'photo' => 'required',
                     'categorie' => 'required',
+                    'profil' => 'required',
                     'description' => 'required|min:2|max:200',
                     'prix' => 'required'
                 ]);
@@ -88,6 +92,15 @@ class WineController extends Controller
             }
 
             DB::commit();
+
+            $last = Wine::where('name', '=', $request->input("denomination"))->first();
+            $profil = new WineProfil();
+            $profil->wine_id = $last->id;
+            $profil->profil_id = $request->input("profil");
+            $profil->percentage = 100;
+
+            $profil->save();
+
             $data["alert"] = [
                 "type" => "success",
                 "icon" => "check",
@@ -104,8 +117,10 @@ class WineController extends Controller
     {
         $data = [];
         $data["id"] = $id;
+        $data["profils"] = Profil::get();
         $data["wine_type"] = WineType::get();
         $data["wine"] = Wine::where("id", "=", $id)->first();
+        $data["wine_profil"] = $data["wine"]->rProfil()->first();
 
         $response = function ($data) {
 
@@ -149,7 +164,6 @@ class WineController extends Controller
                 $request->file('photo')->move(public_path() . "/vins/", $photo_name);
                 $data["wine"]->photo = $photo_name;
 
-                
             }
 
             $data["wine"]->name = $request->input("denomination");
@@ -173,6 +187,17 @@ class WineController extends Controller
             }
 
             DB::commit();
+
+            $last = Wine::where('name', '=', $request->input("denomination"))->first();
+            $wine_profil = WineProfil::where('wine_id', '=', $last->id)->first();
+            $wine_profil->wine_id = $last->id;
+            $wine_profil->profil_id = $request->input("profil");
+            $wine_profil->percentage = 100;
+
+            $wine_profil->save();
+
+            $data["wine_profil"] = $data["wine"]->rProfil()->first();
+            
             $data["alert"] = [
                 "type" => "success",
                 "icon" => "check",
@@ -274,6 +299,7 @@ class WineController extends Controller
     {
         DB::beginTransaction();
         $t = Wine::where('id', "=", $id);
+        $wine_profil = WineProfil::where('wine_id', '=', $id)->first();
         $qs = Wine::where('id', "<>", $id)->get();
         if ($t->count() != 1) {
             return redirect('/admin/wine/list')->with('alert', [
@@ -288,7 +314,7 @@ class WineController extends Controller
 
         File::delete(public_path() . "/vins/" . $t->photo);
 
-        if (!$t->delete()) {
+        if (!$t->delete() || !$wine_profil->delete()) {
             DB::rollback();
             return redirect('/admin/wine/list')->with('alert', [
                 "type" => "danger",
