@@ -21,6 +21,9 @@ Route::group([
     Route::post('/api/signup', 'API\ClientController@signup');
     Route::post('/api/login', 'API\ClientController@login');
 
+    Route::get('/api/questions', 'API\QuestionController@getAll');
+    Route::post('/api/responses', 'API\QuestionController@storeResponses');
+
     Route::group(["middleware" => "auth.session"], function () {
 
         Route::get('/wine/list', 'Admin\WineController@list');

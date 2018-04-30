@@ -97,7 +97,8 @@ class ClientController extends Controller
           $token = JWTAuth::fromUser($client);
 
           $data["alert"] = [
-              "type" => "success",
+			  "type" => "success",
+			  "user" => $client,
               "token" => $token
           ];
       }
