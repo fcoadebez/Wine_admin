@@ -41,9 +41,21 @@
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
                             <div class="form-group row">
-                                <label class="col-3 col-form-label text-right">Dénomination</label>
+                                <label class="col-3 col-form-label text-right">Domaine</label>
                                 <div class="col-6">
-                                    <input type="text" name="denomination" maxlength="150" class="form-control" value="{{ $wine->name }}">
+                                    <input type="text" name="domain" maxlength="150" class="form-control" value="{{ $wine->domain }}">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-3 col-form-label text-right">Appelation</label>
+                                <div class="col-6">
+                                    <input type="text" name="name" maxlength="150" class="form-control" value="{{ $wine->name }}">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-3 col-form-label text-right">Pays</label>
+                                <div class="col-6">
+                                    <input type="text" name="country" maxlength="150" class="form-control" value="{{ $wine->country }}">
                                 </div>
                             </div>
 
@@ -53,7 +65,7 @@
                                     <input type="text" name="millesime" maxlength="150" class="form-control" value="{{ $wine->year }}">
                                 </div>
                             </div>
-                            <div class="form-group row">
+                            {{-- <div class="form-group row">
                                 <label class="col-3 col-form-label text-right">Photo</label>
                                 <div class="col-9" >
                                     <img src="/vins/{{ $wine->photo }}" style="max-height: 100px; margin-bottom: 20px;">
@@ -62,7 +74,7 @@
                                 <div class="col-6">
                                     <input type="file" name="photo" />
                                 </div>
-                            </div>
+                            </div> --}}
                             <div class="form-group row">
                                 <label class="col-3 col-form-label text-right">Catégorie</label>
                                 <div class="col-6">
@@ -91,10 +103,43 @@
                                   </select>
                               </div>
                           </div>
+                          <div class="form-group row">
+                                <label class="col-3 col-form-label text-right">Arômes</label>
+                                <div class="col-1">
+                                    <select id="arome" name="arome1">
+                                            <option value="{{ $wine->arome1 }}">{{ $wine->arome1 }}</option>
+                                        <option value="Floral">Floral</option>
+                                        <option value="Sucré">Sucré</option>
+                                        <option value="Fort">Fort</option>
+                                        <option value="Boisé">Boisé</option>
+                                        <option value="Epicé">Epicé</option>
+                                    </select>
+                                </div>
+                                <div class="col-1">
+                                    <select id="arome" name="arome2">
+                                        <option value="{{ $wine->arome3 }}">{{ $wine->arome2 }}</option>
+                                        <option value="Floral">Floral</option>
+                                        <option value="Sucré">Sucré</option>
+                                        <option value="Fort">Fort</option>
+                                        <option value="Boisé">Boisé</option>
+                                        <option value="Epicé">Epicé</option>
+                                    </select>
+                                </div>
+                                <div class="col-1">
+                                    <select id="arome" name="arome3">
+                                        <option value="{{ $wine->arome3 }}">{{ $wine->arome3 }}</option>
+                                        <option value="Floral">Floral</option>
+                                        <option value="Sucré">Sucré</option>
+                                        <option value="Fort">Fort</option>
+                                        <option value="Boisé">Boisé</option>
+                                        <option value="Epicé">Epicé</option>
+                                    </select>
+                                </div>
+                            </div>
                             <div class="form-group row">
                                 <label class="col-3 col-form-label text-right">Description</label>
                                 <div class="col-6">
-                                    <input type="text" name="description" maxlength="150" class="form-control" value="{{ $wine->description }}">
+                                    <textarea type="text" name="description" maxlength="550" class="form-control">{{ $wine->description }}</textarea>
                                 </div>
                             </div>
                             <div class="form-group row">

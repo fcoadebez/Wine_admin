@@ -42,9 +42,21 @@
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
                             <div class="form-group row">
-                                <label class="col-3 col-form-label text-right">Dénomination</label>
+                                <label class="col-3 col-form-label text-right">Domaine</label>
                                 <div class="col-6">
-                                    <input type="text" name="denomination" maxlength="150" class="form-control">
+                                    <input type="text" name="domain" maxlength="250" class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-3 col-form-label text-right">Appelation</label>
+                                <div class="col-6">
+                                    <input type="text" name="name" maxlength="250" class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-3 col-form-label text-right">Pays</label>
+                                <div class="col-6">
+                                    <input type="text" name="country" maxlength="250" class="form-control">
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -53,12 +65,12 @@
                                     <input type="text" name="millesime" maxlength="150" class="form-control">
                                 </div>
                             </div>
-                            <div class="form-group row">
+                            {{-- <div class="form-group row">
                                 <label class="col-3 col-form-label text-right">Photo</label>
                                 <div class="col-6">
                                     <input type="file" name="photo" />
                                 </div>
-                            </div>
+                            </div> --}}
                             <div class="form-group row">
                                 <label class="col-3 col-form-label text-right">Catégorie</label>
                                 <div class="col-6">
@@ -80,9 +92,42 @@
                                 </div>
                             </div>
                             <div class="form-group row">
+                                <label class="col-3 col-form-label text-right">Arômes</label>
+                                <div class="col-1">
+                                    <select id="arome" name="arome1">
+                                            <option value="">-</option>
+                                        <option value="Floral">Floral</option>
+                                        <option value="Sucré">Sucré</option>
+                                        <option value="Fort">Fort</option>
+                                        <option value="Boisé">Boisé</option>
+                                        <option value="Epicé">Epicé</option>
+                                    </select>
+                                </div>
+                                <div class="col-1">
+                                    <select id="arome" name="arome2">
+                                        <option value="">-</option>
+                                        <option value="Floral">Floral</option>
+                                        <option value="Sucré">Sucré</option>
+                                        <option value="Fort">Fort</option>
+                                        <option value="Boisé">Boisé</option>
+                                        <option value="Epicé">Epicé</option>
+                                    </select>
+                                </div>
+                                <div class="col-1">
+                                    <select id="arome" name="arome3">
+                                        <option value="">-</option>
+                                        <option value="Floral">Floral</option>
+                                        <option value="Sucré">Sucré</option>
+                                        <option value="Fort">Fort</option>
+                                        <option value="Boisé">Boisé</option>
+                                        <option value="Epicé">Epicé</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group row">
                                 <label class="col-3 col-form-label text-right">Description</label>
                                 <div class="col-6">
-                                    <input type="text" name="description" maxlength="150" class="form-control">
+                                    <textarea type="text" name="description" class="form-control"></textarea>
                                 </div>
                             </div>
                             <div class="form-group row">

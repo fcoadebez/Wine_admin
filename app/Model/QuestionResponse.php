@@ -16,4 +16,8 @@ class QuestionResponse extends Model
     public function rQuestion(){
         return $this->hasOne("App\Model\Question", "id", "question_id");
     }
+
+    public function rProfil(){
+        return $this->hasOne("App\Model\Profil", "id", "profil_id");
+    }
 }

@@ -40,12 +40,14 @@ class WineController extends Controller
         if ($request->isMethod("POST")) {
             $valid = Validator($request->all(),
                 [
-                    'denomination' => 'required|min:2|max:200',
+                    'domain' => 'required|min:2|max:300',
+                    'name' => 'required|min:2|max:300',
+                    'country' => 'required|min:2|max:300',
                     'millesime' => 'required',
-                    'photo' => 'required',
+                    // 'photo' => 'required',
                     'categorie' => 'required',
                     'profil' => 'required',
-                    'description' => 'required|min:2|max:200',
+                    'description' => 'required|min:2',
                     'prix' => 'required'
                 ]);
 
@@ -62,19 +64,24 @@ class WineController extends Controller
 
             $timestamp = Carbon::now()->timestamp;
 
-            $photo = $timestamp . "_" . $request->file("photo")->getClientOriginalName();
+            // $photo = $timestamp . "_" . $request->file("photo")->getClientOriginalName();
 
-            $photo_name = str_replace(" ", "_", $photo);
+            // $photo_name = str_replace(" ", "_", $photo);
 
-            $request->file('photo')->move(public_path() . "/vins/", $photo_name);
+            // $request->file('photo')->move(public_path() . "/vins/", $photo_name);
 
             $vin = new Wine();
-            $vin->name = $request->input("denomination");
+            $vin->domain = $request->input("domain");
+            $vin->name = $request->input("name");
+            $vin->country = $request->input("country");
             $vin->year = $request->input("millesime");
-            if ($request->hasFile("photo")) {
-                $vin->photo = $photo_name;
-            }
+            // if ($request->hasFile("photo")) {
+            //     $vin->photo = $photo_name;
+            // }
             $vin->wine_type_id = $request->input("categorie");
+            $vin->arome1 = $request->input("arome1");
+            $vin->arome2 = $request->input("arome2");
+            $vin->arome3 = $request->input("arome3");
             $vin->description = $request->input("description");
             $vin->price = $request->input("prix");
 
@@ -93,7 +100,7 @@ class WineController extends Controller
 
             DB::commit();
 
-            $last = Wine::where('name', '=', $request->input("denomination"))->first();
+            $last = Wine::where('name', '=', $request->input("name"))->first();
             $profil = new WineProfil();
             $profil->wine_id = $last->id;
             $profil->profil_id = $request->input("profil");
@@ -134,10 +141,12 @@ class WineController extends Controller
         if ($request->isMethod("POST")) {
             $valid = Validator($request->all(),
                 [
-                    'denomination' => 'required|min:2|max:200',
+                    'domain' => 'required',
+                    'name' => 'required',
+                    'country' => 'required',
                     'millesime' => 'required',
                     'categorie' => 'required',
-                    'description' => 'required|min:2|max:200',
+                    'description' => 'required',
                     'prix' => 'required'
                 ]);
 
@@ -153,21 +162,26 @@ class WineController extends Controller
             DB::beginTransaction();
             $error = 0;
 
-            if ($request->hasFile("photo")) {
-                $timestamp = Carbon::now()->timestamp;
+            // if ($request->hasFile("photo")) {
+            //     $timestamp = Carbon::now()->timestamp;
 
-                $photo = $timestamp . "_" . $request->file("photo")->getClientOriginalName();
-                $photo_name = str_replace(" ", "_", $photo);
+                // $photo = $timestamp . "_" . $request->file("photo")->getClientOriginalName();
+                // $photo_name = str_replace(" ", "_", $photo);
 
-                File::delete(public_path() . "/vins/" . $data["wine"]->photo);
+                // File::delete(public_path() . "/vins/" . $data["wine"]->photo);
 
-                $request->file('photo')->move(public_path() . "/vins/", $photo_name);
-                $data["wine"]->photo = $photo_name;
+                // $request->file('photo')->move(public_path() . "/vins/", $photo_name);
+                // $data["wine"]->photo = $photo_name;
 
-            }
+            // }
 
-            $data["wine"]->name = $request->input("denomination");
+            $data["wine"]->domain = $request->input("domain");
+            $data["wine"]->name = $request->input("name");
+            $data["wine"]->country = $request->input("country");
             $data["wine"]->year = $request->input("millesime");
+            $data["wine"]->arome1 = $request->input("arome1");
+            $data["wine"]->arome2 = $request->input("arome2");
+            $data["wine"]->arome3 = $request->input("arome3");
             $data["wine"]->wine_type_id = $request->input("categorie");
             $data["wine"]->description = $request->input("description");
             $data["wine"]->price = $request->input("prix");
@@ -188,7 +202,7 @@ class WineController extends Controller
 
             DB::commit();
 
-            $last = Wine::where('name', '=', $request->input("denomination"))->first();
+            $last = Wine::where('name', '=', $request->input("name"))->first();
             $wine_profil = WineProfil::where('wine_id', '=', $last->id)->first();
             $wine_profil->wine_id = $last->id;
             $wine_profil->profil_id = $request->input("profil");
@@ -197,7 +211,7 @@ class WineController extends Controller
             $wine_profil->save();
 
             $data["wine_profil"] = $data["wine"]->rProfil()->first();
-            
+
             $data["alert"] = [
                 "type" => "success",
                 "icon" => "check",
