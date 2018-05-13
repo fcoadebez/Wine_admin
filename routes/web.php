@@ -24,6 +24,9 @@ Route::group([
     Route::get('/api/questions', 'API\QuestionController@getAll');
     Route::post('/api/responses', 'API\QuestionController@storeResponses');
 
+    Route::post('/api/wine/fav', 'API\WineController@favorite');
+    Route::post('/api/wine/unfav', 'API\WineController@unFavorite');
+
     Route::group(["middleware" => "auth.session"], function () {
 
         Route::get('/wine/list', 'Admin\WineController@list');
