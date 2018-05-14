@@ -7,6 +7,7 @@ use JWTAuth;
 use \Validator;
 use App\Model\Client;
 use App\Model\WineFav;
+use App\Model\Wine;
 use App\Http\APIResponse;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -14,6 +15,11 @@ use Tymon\JWTAuth\Exceptions\JWTException;
 
 class WineController extends Controller
 {
+	public function getWines(){
+		$wines = Wine::get();
+		return $wines;
+	}	
+
 	public function favorite(Request $request){
     	$data = [];
 

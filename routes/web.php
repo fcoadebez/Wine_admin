@@ -24,6 +24,7 @@ Route::group([
     Route::get('/api/questions', 'API\QuestionController@getAll');
     Route::post('/api/responses', 'API\QuestionController@storeResponses');
 
+    Route::get('/api/wine/wines', 'API\WineController@getWines');
     Route::post('/api/wine/fav', 'API\WineController@favorite');
     Route::post('/api/wine/unfav', 'API\WineController@unFavorite');
 
