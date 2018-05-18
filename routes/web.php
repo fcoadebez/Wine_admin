@@ -27,6 +27,8 @@ Route::group([
     Route::get('/api/wine/wines', 'API\WineController@getWines');
     Route::post('/api/wine/fav', 'API\WineController@favorite');
     Route::post('/api/wine/unfav', 'API\WineController@unFavorite');
+    Route::post('/api/wine/drink', 'API\WineController@drink');
+    Route::post('/api/wine/undrink', 'API\WineController@unDrink');
 
     Route::group(["middleware" => "auth.session"], function () {
 
