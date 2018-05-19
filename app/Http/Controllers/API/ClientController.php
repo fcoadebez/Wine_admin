@@ -144,12 +144,20 @@ class ClientController extends Controller
                     "winesAll" => $winesAll,
                     "token" => $token,
                 ];
-                // return $data;
 
-                header('Content-Type: application/json; charset=utf-8');
-                echo json_encode($data);
-                die();
-//                return response()->json($data);
+                $data = [
+                    "alert" => [
+                        "type" => "success",
+                        "profil" => true,
+                        "user" => "1",
+                        "winesProfil" => "45",
+                        "winesFav" => "winesFav",
+                        "winesDrink" => "winesDrink",
+                        "winesAll" => "winesAll",
+                        "token" => "token",
+                    ],
+                ];
+                return response()->json($data);
             }
 
             $data["alert"] = [
@@ -160,10 +168,11 @@ class ClientController extends Controller
             ];
         }
 
-        // return $data;
-        header('Content-Type: application/json; charset=utf-8');
-        echo json_encode($data);
-        die();
-        //                return response()->json($data);
+        $data = [
+            "alert" => [
+                "type" => "success",
+            ],
+        ];
+        return response()->json($data);
     }
 }
