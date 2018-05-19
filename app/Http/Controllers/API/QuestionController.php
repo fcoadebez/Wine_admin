@@ -41,6 +41,23 @@ class QuestionController extends Controller
         DB::beginTransaction();
         $error = 0;
 
+        if($request->input("reset") == true) {
+            $profil_is_set = ClientProfil::where('client_id', '=', $request->input("userId"))->first()->delete();
+            $pastResponses = ClientResponse::where('user_id', '=', $request->input("userId"))->delete();
+        }
+
+        // $profil_is_set = ClientProfil::where('client_id', '=', $request->input("userId"))->first();
+        // $pastResponses = ClientResponse::where('user_id', '=', $request->input("userId"))->delete();
+
+        // if($pastResponses) {
+        //     foreach($pastResponses as $pastResponse) {
+        //         $pastResponse->delete();
+        //     }
+        //     // die();
+        //     if ($profil_is_set !== null)
+        //         $profil_is_set->delete();
+        // }
+
         foreach($request->input('responses') as $response) {
 
             $profil = QuestionResponse::where("id", "=", $response["response_id"])->first()->rProfil()->first();
@@ -97,6 +114,7 @@ class QuestionController extends Controller
         $data["alert"] = [
             "type" => "success",
             "wines" => $wines,
+            "winesAll" => $winesAll
         ];
 
         return $data;

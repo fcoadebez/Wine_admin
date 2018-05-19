@@ -11,4 +11,9 @@ class WineFav extends Model
     protected $table = 'wine_fav';
     protected $primaryKey = 'id';
     protected $guarded = ['id'];
+
+    // RELATIONS
+    public function rWines(){
+        return $this->hasMany("App\Model\Wine", "id", "wine_id");
+    }
 }
