@@ -145,6 +145,8 @@ class ClientController extends Controller
                     "token" => $token,
                 ];
                 // return $data;
+
+                header('Content-Type: application/json; charset=utf-8');
                 return json_encode($data);
 //                return response()->json($data);
             }
@@ -158,6 +160,7 @@ class ClientController extends Controller
         }
 
         // return $data;
+        header('Content-Type: application/json; charset=utf-8');
         return json_encode($data);
         //                return response()->json($data);
     }
