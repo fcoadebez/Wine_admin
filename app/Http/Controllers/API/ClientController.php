@@ -145,18 +145,6 @@ class ClientController extends Controller
                     "token" => $token,
                 ];
 
-                $data = [
-                    "alert" => [
-                        "type" => "success",
-                        "profil" => true,
-                        "user" => "1",
-                        "winesProfil" => "45",
-                        "winesFav" => "winesFav",
-                        "winesDrink" => "winesDrink",
-                        "winesAll" => "winesAll",
-                        "token" => "token",
-                    ],
-                ];
                 return response()->json($data);
             }
 
@@ -168,11 +156,6 @@ class ClientController extends Controller
             ];
         }
 
-        $data = [
-            "alert" => [
-                "type" => "success",
-            ],
-        ];
         return response()->json($data);
     }
 }
