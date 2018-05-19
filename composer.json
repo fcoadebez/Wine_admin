@@ -10,8 +10,6 @@
   "require": {
     "php": ">=5.6.4",
     "barryvdh/laravel-cors": "^0.11.0",
-    "barryvdh/laravel-snappy": "^0.4.0",
-    "bnbwebexpertise/laravel-paybox-gateway": "^1.0",
     "jailtonsc/laravel-response-xml": "^2.0",
     "laravel/framework": "5.4.*",
     "laravel/tinker": "~1.0",
