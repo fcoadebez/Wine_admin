@@ -145,7 +145,8 @@ class ClientController extends Controller
                     "token" => $token,
                 ];
 
-                return response()->json($data);
+                // return response()->json($data);
+                return $data;
             }
 
             $data["alert"] = [
@@ -156,6 +157,7 @@ class ClientController extends Controller
             ];
         }
 
-        return response()->json($data);
+        // return response()->json($data);
+        return $data;
     }
 }
